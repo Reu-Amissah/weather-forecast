@@ -23,27 +23,45 @@
       class="flex flex-col w-full mt-5 bg-white bg-opacity-10 backdrop-blur-md py-4 px-6 lg:py-6 lg:px-10 border border-white rounded-xl space-y-2"
     >
       <h3 class="font-semibold text-indigo-500 text-lg">Accra, Ghana</h3>
-      <p class="text-input2 text-xs font-normal">Chance of rain: 20%</p>
+      <p class="text-white text-xs font-normal">Chance of rain: 20%</p>
       <div
         class="flex justify-between lg:justify-start lg:space-x-20 items-center py-6"
       >
-        <p class="text-6xl lg:text-8xl font-bold text-input2">57 °F</p>
+        <p class="text-6xl lg:text-8xl font-bold text-white">57 °F</p>
         <span class="material-symbols-rounded text-6xl lg:text-8xl">
           cloudy_snowing
         </span>
       </div>
       <div class="bg-dark rounded-md text-input2 py-6 px-9">
-        <div class="">Air Condition</div>
-        <div class="flex justify-center items-center w-full mt-3">
-          <div class="w-1/4">
-            <div class="flex justify-start items-center">
-              <span class="material-symbols-rounded"> device_thermostat </span
-              >Real Feel
-            </div>
-          </div>
-          <div class="w-1/4">hi</div>
-          <div class="w-1/4">hi</div>
-          <div class="w-1/4">hi</div>
+        <div class="text-white font-bold text-md">Air Condition</div>
+        <div
+          class="flex flex-wrap space-y-3 lg:space-y-0 items-center w-full mt-5 text-white"
+        >
+          <app-details
+            iconName="device_thermostat"
+            title="Real Feel"
+            description="30 °F"
+            class="w-2/4 lg:w-1/4"
+          ></app-details>
+
+          <app-details
+            iconName="air"
+            title="Wind"
+            description="0.2 km/h"
+            class="w-2/4 lg:w-1/4"
+          ></app-details>
+          <app-details
+            iconName="brightness_low"
+            title="UV Index"
+            description="2"
+            class="w-2/4 lg:w-1/4"
+          ></app-details>
+          <app-details
+            iconName="water_drop"
+            title="Chance of Rain"
+            description="33 %"
+            class="w-2/4 lg:w-1/4"
+          ></app-details>
         </div>
       </div>
     </div>
