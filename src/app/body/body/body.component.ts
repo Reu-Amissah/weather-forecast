@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { DetailsComponent } from '../../details/details/details.component';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ export class BodyComponent implements OnInit {
   location: string = 'Texas';
   current: any = {};
   myError: string = '';
+  celciusT = signal(1);
 
   ngOnInit(): void {
     this.fetchCurrentData();
@@ -22,6 +23,13 @@ export class BodyComponent implements OnInit {
 
   reSearch(): void {
     this.fetchCurrentData();
+  }
+
+  changeCelcius(): void {
+    this.celciusT.set(0);
+  }
+  changeFh(): void {
+    this.celciusT.set(1);
   }
 
   fetchCurrentData() {
