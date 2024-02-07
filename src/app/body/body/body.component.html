@@ -1,5 +1,5 @@
 <div class="w-screen flex justify-center items-center font-body">
-  <div class="w-11/12 lg:w-5/12">
+  <div class="w-11/12 md:w-9/12 lg:w-8/12 xl:w-6/12">
     <div class="flex w-full space-x-2">
       <div
         class="flex justify-start items-center bg-input px-4 py-2 rounded-md lg:rounded-full bg-opacity-20 backdrop-blur-md border border-input2 space-x-2 w-full"
@@ -26,7 +26,7 @@
     >
       <div class="flex justify-between">
         <div>
-          <h3 class="font-semibold text-indigo-500 text-lg">
+          <h3 class="font-semibold text-cyan-400 text-lg">
             {{ current.location.name }}, {{ current.location.country }}
           </h3>
           <p class="text-white text-xs font-normal">
@@ -37,11 +37,13 @@
         <div class="flex h-fit rounded-md text-xs font-semibold">
           <div
             class="bg-white text-dark p-2 rounded-l-md hover:cursor-pointer hover:opacity-80"
+            (click)="(changeCelcius)"
           >
             °C
           </div>
           <div
             class="bg-dark text-white p-2 rounded-r-md hover:cursor-pointer hover:opacity-80"
+            (click)="(changeFh)"
           >
             °F
           </div>
@@ -51,13 +53,18 @@
         class="flex justify-between lg:justify-start lg:space-x-20 items-center py-6"
       >
         <p class="text-6xl lg:text-8xl font-bold text-white">
-          {{ current.current.temp_c }} °C
+          @if(celciusT() === 0){
+
+          {{ current.current.temp_c }} °C } @else {
+          {{ current.current.temp_f }} °F }
         </p>
         <span class="material-symbols-rounded text-6xl lg:text-8xl">
           cloudy_snowing
         </span>
       </div>
-      <div class="bg-dark rounded-md text-input2 py-6 px-9">
+      <div
+        class="bg-dark rounded-md text-input2 py-3 px-6 md:py-5 md:px-8 lg:py-6 lg:px-9"
+      >
         <div class="text-white font-bold text-md">Air Condition</div>
         <div
           class="flex flex-wrap space-y-3 lg:space-y-0 items-center w-full mt-5 text-white"
@@ -65,7 +72,11 @@
           <app-details
             iconName="device_thermostat"
             title="Real Feel"
-            description="{{ current.current.feelslike_c }} °C"
+            description="{{
+              celciusT() === 0
+                ? current.current.feelslike_c + ' °C'
+                : current.current.feelslike_f + ' °F'
+            }}"
             class="w-2/4 lg:w-1/4"
           ></app-details>
 
