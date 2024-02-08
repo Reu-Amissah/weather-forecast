@@ -34,7 +34,7 @@ export class BodyComponent implements OnInit {
 
   fetchCurrentData() {
     const apiUrl =
-      'http://api.weatherapi.com/v1/forecast.json?key=af01bb08f969438f923230747230512' +
+      'https://api.weatherapi.com/v1/forecast.json?key=af01bb08f969438f923230747230512' +
       (this.location ? `&q=${this.location}` : '&q=Takoradi');
     this.httpClient.get(apiUrl).subscribe(
       (data: any) => {
